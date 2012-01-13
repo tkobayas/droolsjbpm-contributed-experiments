@@ -1,0 +1,18 @@
+package org.drools.examples.twittercbr
+
+import twitter4j.Status
+import org.drools.examples.twittercbr.bot.BotTool
+
+declare Status
+    @role( event )
+    @timestamp( createdAt )
+    @expires( 2s )
+end
+
+rule "hi tweet"
+when
+    $s : Status( text matches "^[H|h]i[ |,|!].*" ) from entry-point "twitter"
+then
+	BotTool.reply($s, "say hello!");
+end
+

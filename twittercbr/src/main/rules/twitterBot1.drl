@@ -1,0 +1,18 @@
+package org.drools.examples.twittercbr
+
+import twitter4j.Status
+import org.drools.examples.twittercbr.bot.BotTool
+
+declare Status
+    @role( event )
+    @timestamp( createdAt )
+    @expires( 2s )
+end
+
+rule "all tweet"
+when
+    $s : Status(  ) from entry-point "twitter"
+then
+	System.out.println($s.getUser().getScreenName() + " : " + $s.getText());
+end
+

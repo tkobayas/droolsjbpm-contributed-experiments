@@ -140,7 +140,7 @@ public class TwitterCBROffline {
 
     static {
         // disable twitter4j log
-        System.setProperty( "twitter4j.loggerFactory", "twitter4j.internal.logging.NullLoggerFactory" );
+//        System.setProperty( "twitter4j.loggerFactory", "twitter4j.internal.logging.NullLoggerFactory" );
     }
     
 }
